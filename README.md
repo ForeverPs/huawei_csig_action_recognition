@@ -21,7 +21,7 @@ Official PyTorch Implementation
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#About-the-dataset">About the dataset</a>
+      <a href="#About-the-Dataset">About the Dataset</a>
       <ul>
         <li><a href="#Data-Collection">Data Collection</a></li>
         <li><a href="#Video-Sampling-Rate">Video Sampling Rate</a></li>
@@ -42,7 +42,7 @@ Official PyTorch Implementation
 
 
 ---
-## About the dataset
+## About the Dataset
 ### Data Collection
 - We collect auxiliary videos belong to 6 persons within 10 categories.
 - The collected data is not used in training currently.
