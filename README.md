@@ -1,6 +1,6 @@
 # HUAWEI CSIG 2022: Action Recognition Challenge
 
-[![Rank 2](https://img.shields.io/badge/DS-Solution%20of%20CSIG%20Action%20Recognition%20Challenge-brightgreen.svg?style=flat-square)](https://github.com/ForeverPs/huawei_csig_action_recognition)
+[![Rank 2](https://img.shields.io/badge/DS%20ActionNet-Solution%20of%20CSIG%20Action%20Recognition%20Challenge-brightgreen.svg?style=flat-square)](https://github.com/ForeverPs/huawei_csig_action_recognition)
 
 <img src="https://github.com/ForeverPs/huawei_csig_action_recognition/blob/main/image/csig.png" width="600px"/>
 
@@ -67,15 +67,11 @@ Official PyTorch Implementation
 
 <img src="https://github.com/ForeverPs/huawei_csig_action_recognition/blob/main/image/model.jpg" width="600px"/>
 
-### Some Attack Robustness Results on ImageNet
-- Download pre-trained models here:
-  - [RobustART](https://github.com/DIG-Beihang/RobustART)
-  - [RobustBench](https://github.com/RobustBench/robustbench)
-- Values below are AR (Attack Robustness) metric.
+### Ablation Study
 
 | Model | Method | Top 1 Acc | FGSM Linf=8/255 | PGD L1=1600 | PGD L2=8.0 | PGD Linf=8/255 | C&W L2=8.0 |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| ResNet-50 | Vanilla | 77.89 | 31.77 | 0.01 | 0.01 | 0.00 | 0.21 |
+| ActionNet | Vanilla | 77.89 | 31.77 | 0.01 | 0.01 | 0.00 | 0.21 |
 | ResNet-50 | GCM | 78.57 | 95.18 | 94.82 | 94.41 | 97.38 | 95.11 |
 | WideResNet-50 | Vanilla | 78.21 | 20.88 | 0.36 | 0.61 | 0.50 | 0.21 |
 | WideResNet-50 | GCM | 78.08 |  96.06 | 94.46 | 94.51 | 97.69 | 95.66 |
