@@ -63,7 +63,7 @@ Official PyTorch Implementation
 
 ### Data Augmentation Schemes
 `data.py supports the following operations currently:`
-- Gaussian Noise with 'mean=0' and `std=1e-4`.
+- Gaussian Noise with `mean=0` and `std=1e-4`.
 - Selecting video clips (>20 frames) randomly.
 
 
