@@ -30,19 +30,13 @@ Official PyTorch Implementation
     <li>
       <a href="#About-the-Model">About the Model</a>
       <ul>
-        <li><a href="#Conclusion">Conclusion</a></li>
-        <li><a href="#Datasets">Datasets</a></li>
+        <li><a href="#Architecture">Architecture</a></li>
+        <li><a href="#Ablation-Study">Ablation Study</a></li>
         <li><a href="#Data-Augmentation-Schemes">Data Augmentation Schemes</a></li>
-        <li><a href="#Image-Pre-Processing">Image Pre-Processing</a></li>
-        <li><a href="#Adversarial-Defense-Schemes">Adversarial Defense Schemes</a></li>
-        <li><a href="#Architectures">Architectures</a></li>
-        <li><a href="#Training-Details">Training Details</a></li>
-        <li><a href="#DDP-Training">DDP Training</a></li>
+        <li><a href="#Training">Training</a></li>
       </ul>
     </li>
     <li><a href="#Reference">Reference</a></li>
-    <li><a href="#Citation">Citation</a></li>
-    <li><a href="#Acknowledgement">Acknowledgement</a></li>
   </ol>
 </details>
 
@@ -84,12 +78,6 @@ Official PyTorch Implementation
 | Swin-Transformer-S | Vanilla | 82.93 | 16.93 | 0.20 | 0.00 | 0.00 | 0.76 |
 | Swin-Transformer-S | GCM | 82.79 | 94.38 | 90.71 | 91.04 | 98.77 | 92.31 |
 
-### Datasets
-- train_phase1/images/ : 22987 images for training
-- train_phase1/label.txt : ground-truth file
-- track1_test1/ : 20000 images for testing
-- train_p2 : 127390 images within 100 categories
-
 ### Data Augmentation Schemes
 `data_aug.py supports the following operations currently:`
 - PepperSaltNoise
@@ -99,38 +87,9 @@ Official PyTorch Implementation
 - RGBShuffle / ColorJitter
 - Rotate
 - HorizontalFlip / VerticalFlip
-- RandomCut
-- MotionBlur / GaussianBlur / ConventionalBlur
-- Rain / Snow
-- Extend
-- BlockShuffle
-- LocalShuffle (for learning local spatial feature)
-- RandomPadding (for defense of adversarial attacks)
 
-![avatar](https://github.com/ForeverPs/Robust-Classification/blob/main/data_aug_test/demo.png)
 
-### Image Pre-Processing
-- `transforms.Resize(256)`
-- `transforms.RandomResizedCrop(224)`
-- `Data augmentation schemes`
-
-### Adversarial Defense Schemes
-- Adversarial training using fast gradient sign method.
-- Resize and pad the input images for mitigating adversarial effects.
-- Gradient concealment module for hiding the vulnerable direction of classifier's gradient.
-
-### Architectures
-- ConvNext(tiny) + FC + FGSM regularization + GCM(Gradient Concealment Module) + Randomization
-- ConvNext(tiny) + [ML Decoder](https://github.com/Alibaba-MIIL/ML_Decoder) + FGSM regularization + GCM(Gradient Concealment Module) + Randomization
-
-<img src="https://github.com/ForeverPs/Robust-Classification/blob/main/data/gcm.png" width="700px"/>
-
-### Training Details
-- Training from scratch in a two-stage manner, we provide our checkpoints.
-- The first stage: train ConvNext without `ResizedPaddingLayer`.
-- The second stage: finetune ConvNext with `ResizedPaddingLayer`.
-
-### DDP Training
+### Training
 - `python -m torch.distributed.launch --nproc_per_node=5 train.py  --batch_size 64 --n_gpus=5`
 - If you have more GPUs, you can modify the `nproc_per_node` and `n_gpus` to utilize them.
 
@@ -142,20 +101,3 @@ Official PyTorch Implementation
 - [Mitigating adversarial effects through randomization](https://arxiv.org/abs/1711.01991) (ICLR, 2018)
 - [CutMix: Regularization Strategy to Train Strong Classifiers with Localizable Features](https://arxiv.org/pdf/1905.04899v2.pdf) (ICCV, 2019)
 - [A ConvNet for the 2020s](https://github.com/facebookresearch/ConvNeXt) (CVPR, 2022)
-
----
-## Citation
-
-```
-@article{Pei2022Grad,
-  title={Gradient Concealment: Free Lunch for Defending Adversarial Attacks},
-  author={Sen Pei, Jiaxi Sun, Xiaopeng Zhang and Gaofeng Meng},
-  archivePrefix={arXiv},
-  primaryClass={cs.CV},
-  year={2022}
-}
-```
----
-## Acknowledgement
-- This work is done during the author's internship at [ByteDance](https://www.bytedance.com/en/). 
-- The author would like to thank **[Xiaojie Jin](https://scholar.google.com/citations?hl=zh-CN&user=OEZ816YAAAAJ)** and **Ye Yuan** for their support in both provided computing resources and vital discussions.
