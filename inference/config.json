@@ -1,0 +1,73 @@
+{
+    "model_type": "PyTorch",
+    "runtime": "python3.7",
+    "model_algorithm": "action_recognition",
+    "metrics": {
+        "accuracy": 0.0
+    },
+    "apis": [{
+        "protocol": "https",
+        "url": "/",
+        "method": "post",
+        "request": {
+            "Content-type": "multipart/form-data",
+            "data": {
+				"type":"object",
+				"properties":{
+					"poses":{
+						"type":"file"
+					}
+				}
+            }
+        },
+        "response": {
+
+            "Content-type": "application/json",
+
+            "data": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "class_scores": {
+
+                        "type": "object",
+
+                        "properties": {
+
+                            "action_class": {
+
+                                "type": "array",
+
+                                "items": [{
+
+                                    "type": "number"
+                                }]
+
+                            }
+                        },
+
+                    },
+                    
+                }
+            }
+        }
+    }],
+    "dependencies": [{
+        "installer": "pip",
+        "packages": [
+            {
+                "restraint": "EXACT",
+                "package_version": "1.10.0",
+                "package_name": "torch"
+            },
+            {
+                "restraint": "EXACT",
+                "package_version": "0.11.1",
+                "package_name": "torchvision"
+            }
+
+        ]
+    }]
+}
