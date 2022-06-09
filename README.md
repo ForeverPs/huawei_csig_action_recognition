@@ -7,7 +7,7 @@
 ---
 
 [Homepage](https://competition.huaweicloud.com/information/1000041695/circumstance) |
-[Checkpoints](https://drive.google.com/drive/u/0/folders/1uSrX6fHczmk30ma5IsXobsXHwqhPPWVy)
+[Checkpoints](https://drive.google.com/drive/u/0/folders/1-Pn1Vhltks00zwnLnMQ6FFJJNO0OXGL4)
 
 
 Official PyTorch Implementation
@@ -21,15 +21,14 @@ Official PyTorch Implementation
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#About-the-proposed-Gradient-Concealment-Module">About the proposed Gradient Concealment Module</a>
+      <a href="#About-the-dataset">About the dataset</a>
       <ul>
-        <li><a href="#Installation">Installation</a></li>
-        <li><a href="#Highlights-of-Gradient-Concealment-Module">Highlights of Gradient Concealment Module</a></li>
-        <li><a href="#Some-Attack-Robustness-Results-on-ImageNet">Some Attack Robustness Results on ImageNet</a></li>
+        <li><a href="#Data-Collection">Data-collection</a></li>
+        <li><a href="#Video-Sampling-Rate">Video Sampling Rate</a></li>
       </ul>
     </li>
     <li>
-      <a href="#About-the-CVPR-Robust-Classification-Challenge">About the CVPR Robust Classification Challenge</a>
+      <a href="#About-the-Model">About the Model</a>
       <ul>
         <li><a href="#Conclusion">Conclusion</a></li>
         <li><a href="#Datasets">Datasets</a></li>
@@ -49,15 +48,24 @@ Official PyTorch Implementation
 
 
 ---
-## About the proposed Gradient Concealment Module
-### Installation
-- `pytorch`, no strict version constraint.
-- set `GradientConcealment()` in `model/robust_layer.py` as the top layer of your model in `forward()`.
+## About the dataset
+### Data collection
+- We collect auxiliary videos belong to 6 persons within 10 categories.
+- The collected data is not used in training currently.
 
-### Highlights of Gradient Concealment Module
-- Parameter-free, training-free, plug-and-play.
-- Promising performance in both classification task and adversarial defense.
-- Superior generalization across different model architectures, including CNN-based models and attention-based models.
+### Video Sampling Rate
+- Officially, 30 fps.
+- The duration of each video is 20 seconds approximately.
+---
+
+## About the Model
+### Architecture
+- A single `nn.Linear()` layer to model the input angle parameters.
+- Self attention scheme is used fro temporal feature fusion.
+- Shortcut is used for improving the classification performance.
+- [ML Decoder](https://github.com/Alibaba-MIIL/ML_Decoder) is the classification head.
+- 
+<img src="https://github.com/ForeverPs/huawei_csig_action_recognition/blob/main/image/model.jpg" width="600px"/>
 
 ### Some Attack Robustness Results on ImageNet
 - Download pre-trained models here:
@@ -79,15 +87,6 @@ Official PyTorch Implementation
 | ViT-B/16 | GCM | 79.47 | 92.24 | 94.94 | 95.07 | 98.24 | 93.31 |
 | Swin-Transformer-S | Vanilla | 82.93 | 16.93 | 0.20 | 0.00 | 0.00 | 0.76 |
 | Swin-Transformer-S | GCM | 82.79 | 94.38 | 90.71 | 91.04 | 98.77 | 92.31 |
-
----
-
-## About the CVPR Robust Classification Challenge
-### Conclusion
-- Backbone does matter, ConvNext is better than SeResNet.
-- Randomization is efficient for defending adversarial attacks.
-- Data augmentation is vital for improving the classification performance, reducing overfitting.
-- Gradient concealment dramatically improves AR metric of classifiers in presence of perturbed images.
 
 ### Datasets
 - train_phase1/images/ : 22987 images for training
