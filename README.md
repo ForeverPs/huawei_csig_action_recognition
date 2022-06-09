@@ -73,14 +73,16 @@ Official PyTorch Implementation
 
 
 ### Ablation Study
+- Vanilla: training with no tricks.
+- DA: training with data augmentation schemes.
 
 | Model | Method | Units of `nn.Linear()` | Model Size | Acc|
 | :---: | :---: | :---: | :---: | :---: |
 | ActionNet | Vanilla | 512 | 28.95M | 0.9250 |
-| ActionNet | Vaniila | 1280 | 50.61M | 0.9750 |
-| ActionNet | Vanilla | 2048 | 92.29M | 0.9875 |
 | ActionNet | DA | 512 |  28.95M | 0.9875 |
+| ActionNet | Vaniila | 1280 | 50.61M | 0.9750 |
 | ActionNet | DA | 1280 |  50.61M | 1.000 |
+| ActionNet | Vanilla | 2048 | 92.29M | 0.9875 |
 | ActionNet | DA | 2048 | 92.29M | 1.000 |
 
 ---
