@@ -31,9 +31,9 @@ Official PyTorch Implementation
       <a href="#About-the-Model">About the Model</a>
       <ul>
         <li><a href="#Architecture">Architecture</a></li>
-        <li><a href="#Ablation-Study">Ablation Study</a></li>
         <li><a href="#Data-Augmentation-Schemes">Data Augmentation Schemes</a></li>
         <li><a href="#Training">Training</a></li>
+        <li><a href="#Ablation-Study">Ablation Study</a></li>
       </ul>
     </li>
     <li><a href="#Reference">Reference</a></li>
@@ -61,6 +61,17 @@ Official PyTorch Implementation
 
 <img src="https://github.com/ForeverPs/huawei_csig_action_recognition/blob/main/image/model.jpg" width="600px"/>
 
+### Data Augmentation Schemes
+`data.py supports the following operations currently:`
+- Gaussian Noise with 'mean=0' and `std=1e-4`.
+- Selecting video clips (>20 frames) randomly.
+
+
+### Training
+- CPU is enough for training the official data.
+- Running `python train.py` in command line.
+
+
 ### Ablation Study
 
 | Model | Method | Units of `nn.Linear()` | Model Size | Acc|
@@ -71,16 +82,6 @@ Official PyTorch Implementation
 | ActionNet | DA | 512 |  28.95M | 0.9875 |
 | ActionNet | DA | 1280 |  50.61M | 1.000 |
 | ActionNet | DA | 2048 | 92.29M | 1.000 |
-
-### Data Augmentation Schemes
-`data.py supports the following operations currently:`
-- Gaussian Noise with 'mean=0' and `std=1e-4`.
-- Selecting video clips (>20 frames) randomly.
-
-
-### Training
-- CPU is enough for training the official data.
-- Running `python train.py` in command line.
 
 ---
 ## Reference
