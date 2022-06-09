@@ -64,7 +64,7 @@ Official PyTorch Implementation
 - Self attention scheme is used fro temporal feature fusion.
 - Shortcut is used for improving the classification performance.
 - [ML Decoder](https://github.com/Alibaba-MIIL/ML_Decoder) is the classification head.
-- 
+
 <img src="https://github.com/ForeverPs/huawei_csig_action_recognition/blob/main/image/model.jpg" width="600px"/>
 
 ### Some Attack Robustness Results on ImageNet
