@@ -1,6 +1,6 @@
 # HUAWEI CSIG 2022: Action Recognition Challenge
 
-[![Rank 2](https://img.shields.io/badge/DS%20ActionNet-Solution%20of%20CSIG%20Action%20Recognition%20Challenge-brightgreen.svg?style=flat-square)](https://github.com/ForeverPs/huawei_csig_action_recognition)
+[![Rank 2](https://img.shields.io/badge/DS%20ActionNet-2nd%20Solution%20of%20CSIG%20Action%20Recognition%20Challenge-brightgreen.svg?style=flat-square)](https://github.com/ForeverPs/huawei_csig_action_recognition)
 
 <img src="https://github.com/ForeverPs/huawei_csig_action_recognition/blob/main/image/csig.png" width="600px"/>
 
