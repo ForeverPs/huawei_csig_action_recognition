@@ -78,12 +78,12 @@ Official PyTorch Implementation
 
 | Model | Method | Units of `nn.Linear()` | Model Size | Acc|
 | :---: | :---: | :---: | :---: | :---: |
-| ActionNet | Vanilla | 512 | 28.95M | 0.9250 |
-| ActionNet | DA | 512 |  28.95M | 0.9875 |
-| ActionNet | Vaniila | 1280 | 50.61M | 0.9750 |
-| ActionNet | DA | 1280 |  50.61M | 1.000 |
-| ActionNet | Vanilla | 2048 | 92.29M | 0.9875 |
-| ActionNet | DA | 2048 | 92.29M | 1.000 |
+| ActNet | Vanilla | 512 | 28.95M | 0.9250 |
+| ActNet | DA | 512 |  28.95M | 0.9875 |
+| ActNet | Vaniila | 1280 | 50.61M | 0.9750 |
+| ActNet | DA | 1280 |  50.61M | 1.000 |
+| ActNet | Vanilla | 2048 | 92.29M | 0.9875 |
+| ActNet | DA | 2048 | 92.29M | 1.000 |
 
 ---
 ## Reference
